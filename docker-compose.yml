@@ -1,0 +1,13 @@
+version: "3"
+services:
+  next:
+    build: .
+    command: "bin/start_dev"
+    volumes:
+      - .:/app
+    ports:
+      - "${DC_NEXT_LOCAL_PORT}:3000"
+      - "${DC_WEBSOCKET_PORT}:${DC_WEBSOCKET_PORT}"
+    env_file: .env
+    tty: true
+    stdin_open: true
